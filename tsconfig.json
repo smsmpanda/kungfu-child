@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "noImplicitAny": true,
+      "module": "ES2015",
+      "target": "ES2015",
+      "allowJs": true,
+      "noEmitOnError": true
+    },
+    "include": [
+      "./src/**/*"
+    ]
+}
