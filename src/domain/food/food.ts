@@ -1,26 +1,39 @@
 export default class Food {
 
-    maxX: number = 290
-    maxY: number = 350
+    //食物尺寸
+    width: number = 10
+    height: number = 10
 
-    element: HTMLElement
+    //舞台对象
+    stage: HTMLElement
+
+    //舞台尺寸
+    static WidthLimit: number = 0
+    static HeightLimit: number = 0
+
+    //食物放置步长
+    foodPlaceStep: number = 10
+    foodElement: HTMLElement
+
     constructor() {
-        this.element = document.getElementById('food')!
+        this.stage = document.getElementById('stage')!
+        this.foodElement = document.getElementById('food')!
+        Food.WidthLimit = this.stage.clientWidth
+        Food.HeightLimit = this.stage.clientHeight
     }
 
     get X(): Number {
-        return this.element.offsetLeft
+        return this.foodElement.offsetLeft
     }
     get Y(): Number {
-        return this.element.offsetTop
+        return this.foodElement.offsetTop
     }
 
     change() {
+        let left = Math.round(Math.random() * (Food.WidthLimit - this.width) / this.foodPlaceStep) * this.foodPlaceStep
+        let top = Math.round(Math.random() * (Food.HeightLimit - this.height) / this.foodPlaceStep) * this.foodPlaceStep
 
-        let left = Math.round(Math.random() * 29) * 10
-        let top = Math.round(Math.random() * 35) * 10
-
-        this.element.style.left = `${left}px`
-        this.element.style.top = `${top}px`
+        this.foodElement.style.left = `${left}px`
+        this.foodElement.style.top = `${top}px`
     }
 }

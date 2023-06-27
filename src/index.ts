@@ -1,7 +1,6 @@
-import Food from './domain/food/food'
+import GrameControl from './domain/GameControl';
 import "./style/index.less"
 
 
-const food = new Food();
-console.log(food.X, food.Y)
-food.change()
+const gameControl = new GrameControl();
+gameControl.init()
