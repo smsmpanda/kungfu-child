@@ -6,27 +6,28 @@
 }
 
 .app {
-    border: 2px solid #74aac3;
+    border: 2px solid #000;
     border-radius: 3px;
     box-sizing: border-box;
-    width: 350px;
+    width: 700px;
     height: 450px;
     position: absolute;
     top: 50%;
     left:50%;
     transform: translate(-50%,-50%);
-    background-color: skyblue;
+    background-color: #000;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #fff;
 }
 .snake-stage {
-    width:300px;
+    width:650px;
     height:360px;
-    margin: 10px;
+    margin: 15px;
     position: relative;
     border:1px solid #000;
-    
+    background-color: #141f33;
     &>.snake-food {
         width:10px;
         height: 10px;
@@ -37,11 +38,13 @@
         flex-flow: row wrap;
         justify-content: space-between;
         align-content: space-between;
+        background-color: transparent;
         &>div{
             width:4px;
             height: 4px;
             background: #000;
             transform: rotate(45deg);
+            background-color: #fff;
         }
     }
 }
@@ -55,15 +58,17 @@
     box-sizing: border-box;
     top:0;
     left: 0;
+    border-radius: 2px;
 }
 
 .snake-score-panel {
     width:100%;
     flex:1;
-    background-color: #b7d4a8;
+    background-color: #1e211c;
     display: flex;
     justify-content:space-around;
     align-items: center;
+    font-size: 20px;
 }
 
 .snake-wrap{
