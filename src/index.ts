@@ -1,14 +1,15 @@
-import GrameControl from './domain/GameControl';
+import GrameControl from './domain/gluttony/GameControl';
 import "./style/index.less"
 
-
-const gameControl = new GrameControl();
-gameControl.init()
+import { DoorService } from './api/doorapi'
 
 
+// gluttony game init
+new GrameControl().init()
+
+
+// button binding click event
 const btn = document.getElementById('start') as HTMLButtonElement
-//typescript为按钮绑定点击事件
-
 btn.addEventListener('click', () => {
-    console.log(111)
+    const doorsvc = new DoorService().GetDoorsList()
 })
