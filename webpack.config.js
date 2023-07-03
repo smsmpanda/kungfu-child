@@ -12,19 +12,19 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                loader: 'ts-loader',
                 exclude: /node_modules/,
                 options: {
                     appendTsSuffixTo: [/\.vue$/],
                 },
             },
-            { test: /\.(sa|sc|c)ss$/, use: ['style-loader', 'css-loader', 'less-loader'] },
+            { test: /\.(le|sa|sc|c)ss$/, use: ['style-loader', 'css-loader', 'less-loader'] },
             { test: /\.vue$/, use: 'vue-loader' }
         ]
     },
     //设置引用模块
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.tsx', '.ts', '.js']
     },
     output: {
         filename: "[name].js",
