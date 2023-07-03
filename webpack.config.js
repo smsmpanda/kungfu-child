@@ -1,6 +1,7 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const { VueLoaderPlugin } = require('vue-loader/dist')
 
 module.exports = {
     entry: {
@@ -9,8 +10,16 @@ module.exports = {
     mode: 'development',
     module: {
         rules: [
-            { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
-            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] }
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    appendTsSuffixTo: [/\.vue$/],
+                },
+            },
+            { test: /\.(sa|sc|c)ss$/, use: ['style-loader', 'css-loader', 'less-loader'] },
+            { test: /\.vue$/, use: 'vue-loader' }
         ]
     },
     //设置引用模块
@@ -22,9 +31,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+        new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            title: 'test'
         })
     ]
 }
