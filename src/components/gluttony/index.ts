@@ -2,15 +2,9 @@ import Food from "./food/food";
 import Snake from "./snake/snake";
 import ScorePanel from "./score/score";
 
-enum Dirction {
-    ArrowDown,
-    ArrowUp,
-    ArrowRight,
-    ArrowLeft
-}
 
 // 游戏控制器
-export default class GrameControl {
+class GluttonyGame {
 
     private snake: Snake            // 蛇
     private food: Food              // 食物
@@ -89,6 +83,6 @@ export default class GrameControl {
             this.food.change()
         }
     }
-
 }
 
+export { GluttonyGame }

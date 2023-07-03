@@ -35,7 +35,8 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            title: 'test'
+            title: 'Vue + TypeScript + WebPack',
+            favicon: './src/assets/favicon.ico'
         })
     ]
 }
