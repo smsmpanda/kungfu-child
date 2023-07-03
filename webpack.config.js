@@ -9,19 +9,8 @@ module.exports = {
     mode: 'development',
     module: {
         rules: [
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'less-loader'
-                ]
-            }
+            { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
+            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] }
         ]
     },
     //设置引用模块
