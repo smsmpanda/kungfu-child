@@ -1,6 +1,10 @@
 import axios from "../../node_modules/axios/index";
 import { ApiUri } from "../common/apiconfig";
 
+interface IDoorServie {
+    GetDoorsList(): void;
+}
+
 export class DoorService implements IDoorServie {
     GetDoorsList(): void {
         axios.get(ApiUri.APIGetDoorList, {
