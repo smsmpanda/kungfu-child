@@ -1,11 +1,10 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const { VueLoaderPlugin } = require('vue-loader/dist')
 
 module.exports = {
     entry: {
-        main: './src/index.ts'
+        main: './src/main.ts'
     },
     mode: 'development',
     module: {
@@ -18,21 +17,28 @@ module.exports = {
                     appendTsSuffixTo: [/\.vue$/],
                 },
             },
-            { test: /\.(le|sa|sc|c)ss$/, use: ['style-loader', 'css-loader', 'less-loader'] },
-            { test: /\.vue$/, use: 'vue-loader' }
+            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
+            { test: /\.vue$/, use: 'vue-loader' },
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'images/[hash][ext][query]'
+                }
+            }
         ]
     },
-    //设置引用模块
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
     },
     output: {
+        clean: true,
         filename: "[name].js",
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
         new VueLoaderPlugin(),
-        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             title: 'Vue + TypeScript + WebPack',

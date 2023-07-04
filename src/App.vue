@@ -1,14 +1,25 @@
 <template>
     <h1>{{ data.title }}</h1>
-    <hr />
-    <Gluttony></Gluttony>
+    <Gluttony />
+    <img :src="testImg" alt="测试图片说明">
 </template>
-<script setup lang="ts">
-import { reactive } from 'vue';
-import Gluttony from './components/gluttony/index.vue'
+<script  lang="ts">
+import { defineAsyncComponent, defineComponent, reactive } from 'vue';
+import testImg from './assets/img/p.png'
 
-const data = reactive({
-    title: 'Gluttony'
-});
-
+export default defineComponent({
+    name: 'App',
+    components: {
+        Gluttony: defineAsyncComponent(() => import('./components/gluttony/index.vue'))
+    },
+    setup() {
+        const data = reactive({
+            title: 'Gluttony',
+        });
+        return {
+            data,
+            testImg
+        }
+    }
+})
 </script>

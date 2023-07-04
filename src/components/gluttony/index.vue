@@ -25,18 +25,27 @@
         <button id="start" @click="getOpenAPI">点击开始</button>
     </div>
 </template>
-<script setup lang="ts">
-import { onMounted } from 'vue';
+<script  lang="ts">
+import { defineComponent, onMounted } from 'vue';
 import './style/index.less'
 
 import { GluttonyGame } from '../gluttony';
-import { DoorService } from '../../api/doorapi'//'./api/doorapi'
+import { DoorService } from '../../api/doorapi'
 
-onMounted(() => {
-    new GluttonyGame().init()
+export default defineComponent({
+    name: 'Gluttony',
+    setup() {
+
+        onMounted(() => {
+            new GluttonyGame().init()
+        })
+
+        function getOpenAPI(): void {
+            new DoorService().GetDoorsList()
+        }
+        return {
+            getOpenAPI
+        }
+    }
 })
-
-function getOpenAPI(): void {
-    new DoorService().GetDoorsList()
-}
 </script>
