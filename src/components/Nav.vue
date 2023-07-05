@@ -1,6 +1,8 @@
 <template>
     <el-menu :default-active="data.activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false" :router="true">
-        <el-menu-item index="/">LOGO</el-menu-item>
+        <el-menu-item index="/">
+            <el-image style="width: 50px; height: 50px" :src="data.logoImg" />
+        </el-menu-item>
         <el-menu-item index="2"> Gongdan Center </el-menu-item>
         <div class="container-fill" />
         <el-menu-item index="/about">About</el-menu-item>
@@ -21,12 +23,15 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
+import logoImg from '../assets/img/p.png'
+
 
 export default defineComponent({
     name: 'App',
     setup() {
         const data = reactive({
-            activeIndex: '/'
+            activeIndex: '/',
+            logoImg
         });
 
         return {
