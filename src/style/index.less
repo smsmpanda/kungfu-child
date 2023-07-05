@@ -1,4 +1,36 @@
+//viariables
+@banner:1280px;
+
+//common
+html,body,#app{
+    width:100%;
+    height: 100%;
+    
+}
+
 * {
     margin: 0;
     padding: 0;
+}
+
+.container-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fill{
+    flex-grow: 1;
+}
+
+.header-container{
+    width:100%;
+}
+.banner{
+    width: @banner;
+    margin: 0 auto;
 }

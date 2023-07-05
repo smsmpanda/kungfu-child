@@ -10,4 +10,4 @@
 * https://api.apiopen.top
 
 #### ❓️ 说明
-* 学习`TypeScript`、`WebPack`的基础用法
+* 学习`vue3`、`element-plus`、`TypeScript`、`WebPack`的基础用法

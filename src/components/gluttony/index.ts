@@ -1,6 +1,7 @@
 import Food from "./food/food";
 import Snake from "./snake/snake";
 import ScorePanel from "./score/score";
+import { KeyboardDirection } from '../../common/constants'
 
 
 // 游戏控制器
@@ -10,13 +11,17 @@ class GluttonyGame {
     private food: Food              // 食物
     private scorePanel: ScorePanel  // 计分板
 
-    private isLive: boolean = true         // 蛇是否存活
+    private isLive: boolean = true  // 蛇是否存活
     private direction: string
+
+    private timer: any
 
     constructor() {
         this.food = new Food()
         this.snake = new Snake()
         this.scorePanel = new ScorePanel()
+
+        console.log('GluttonyGame::->ctor' + 'go...')
     }
 
     init() {
@@ -49,20 +54,19 @@ class GluttonyGame {
         let currentY = this.snake.Y
 
         switch (this.direction) {
-            case "ArrowUp":
+            case KeyboardDirection.ArrowUp:
                 currentY -= 10
                 break;
-            case "ArrowDown":
+            case KeyboardDirection.ArrowDown:
                 currentY += 10
                 break;
-            case "ArrowLeft":
+            case KeyboardDirection.ArrowLeft:
                 currentX -= 10
                 break;
-            case "ArrowRight":
+            case KeyboardDirection.ArrowRight:
                 currentX += 10
                 break;
         }
-
         this.checkEat(currentX, currentY)
 
         try {
@@ -73,7 +77,9 @@ class GluttonyGame {
             this.isLive = false
         }
 
-        this.isLive && setTimeout(this.run.bind(this), 300 - (this.scorePanel.Level - 1) * 30)
+        this.isLive && (this.timer = setTimeout(this.run.bind(this), 300 - (this.scorePanel.Level - 1) * 30))
+
+
     }
 
     checkEat(x: number, y: number) {
@@ -82,6 +88,10 @@ class GluttonyGame {
             this.scorePanel.addScore()
             this.food.change()
         }
+    }
+
+    destory() {
+        this.timer && clearTimeout(this.timer)
     }
 }
 

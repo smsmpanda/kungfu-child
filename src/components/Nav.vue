@@ -1,12 +1,9 @@
 <template>
-    <el-menu :default-active="data.activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false"
-        @select="handleSelect">
-        <el-menu-item index="0" @click="backToHome">LOGO</el-menu-item>
-        <el-menu-item index="1">
-            Processing Center
-        </el-menu-item>
-        <div class="flex-grow" />
-        <el-menu-item index="2">Processing Center</el-menu-item>
+    <el-menu :default-active="data.activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false" :router="true">
+        <el-menu-item index="/">LOGO</el-menu-item>
+        <el-menu-item index="2"> Gongdan Center </el-menu-item>
+        <div class="container-fill" />
+        <el-menu-item index="/about">About</el-menu-item>
         <el-sub-menu index="3">
             <template #title>Workspace</template>
             <el-menu-item index="3-1">item one</el-menu-item>
@@ -24,36 +21,17 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
-import { useRouter } from 'vue-router'
 
 export default defineComponent({
     name: 'App',
     setup() {
         const data = reactive({
-            title: 'Gluttony',
-            activeIndex: 1
+            activeIndex: '/'
         });
 
-        const handleSelect = (key: string, keyPath: string[]) => {
-            console.log(key, keyPath)
-        }
-
-        const router = useRouter()
-        const backToHome = () => {
-            router.push('/')
-        }
-
         return {
-            data,
-            handleSelect,
-            backToHome
+            data
         }
     }
 })
 </script>
-
-<style>
-.flex-grow {
-    flex-grow: 1;
-}
-</style>

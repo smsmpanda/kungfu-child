@@ -41,7 +41,7 @@ module.exports = {
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            title: 'Vue + TypeScript + WebPack',
+            title: 'Play C',
             favicon: './src/assets/favicon.ico'
         })
     ]

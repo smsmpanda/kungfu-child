@@ -21,31 +21,25 @@
             </div>
         </div>
     </div>
-    <div>
-        <button id="start" @click="getOpenAPI">点击开始</button>
-    </div>
 </template>
 <script  lang="ts">
-import { defineComponent, onMounted } from 'vue';
+import { defineComponent, onMounted, onUnmounted } from 'vue';
 import './style/index.less'
 
 import { GluttonyGame } from '../gluttony';
-import { DoorService } from '../../api/doorapi'
+
 
 export default defineComponent({
     name: 'Gluttony',
     setup() {
-
+        let gluttony: GluttonyGame
         onMounted(() => {
-            new GluttonyGame().init()
+            gluttony = new GluttonyGame()
+            gluttony.init()
         })
-
-        function getOpenAPI(): void {
-            new DoorService().GetDoorsList()
-        }
-        return {
-            getOpenAPI
-        }
+        onUnmounted(() => {
+            gluttony.destory()
+        })
     }
 })
 </script>

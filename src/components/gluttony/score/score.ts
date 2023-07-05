@@ -20,6 +20,7 @@ export default class ScorePanel {
     }
 
     addScore() {
+        console.log(this.Score)
         this.Score += 1
         if (this.Score % this.upgradeStep == 0) {
             this.levelUpGrade()

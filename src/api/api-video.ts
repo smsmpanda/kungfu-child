@@ -1,5 +1,5 @@
-import axios from "../../node_modules/axios/index";
-import { ApiUri } from "../common/apiconfig";
+import axios from "axios";
+import { ApiUri } from "../common/api-config";
 
 interface IDoorServie {
     GetDoorsList(): void;
