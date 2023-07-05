@@ -1,9 +1,9 @@
 <template>
-    <div class="container-flex-row">
-        <nav>
+    <div class="home-container container-flex-row">
+        <div>
             <Navmenu />
-        </nav>
-        <section class="home-container container-fill">
+        </div>
+        <section class="home-content-container container-fill">
             <router-view></router-view>
         </section>
     </div>
@@ -25,12 +25,16 @@ export default defineComponent({
 </script>
 
 <style>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
+.home-content-container {
+    padding: 10px
+}
+
+
+.home-menu-nav {
+    position: relative;
 }
 
 .home-container {
-    padding: 5px
+    position: relative;
 }
 </style>

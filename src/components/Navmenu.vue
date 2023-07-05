@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="nav-menu">
         <el-menu default-active="1-1" class="el-menu-vertical-demo" :collapse="data.isCollapse" :router="true">
             <el-sub-menu>
                 <template #title>
@@ -82,5 +82,10 @@ export default defineComponent({
 <style>
 .nav-menu-title {
     line-height: 24px;
+}
+
+.nav-menu {
+    position: sticky;
+    top: 62px;
 }
 </style>

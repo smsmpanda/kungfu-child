@@ -2,7 +2,7 @@ import axios from "axios";
 import { ApiUri as urls } from "../common/api-config";
 
 interface IVideoServie<T> {
-    GetVideoList(): Result<T>;
+    GetVideoList(): Promise<Response<T>>;
 }
 
 //#region  api response
@@ -16,6 +16,11 @@ class Response<T> {
 export class Result<T> {
     public list: T[] = Array<T>();
     public total: number;
+
+    constructor() {
+        this.list = Array<T>();
+        this.total = 0;
+    }
 }
 
 export class Video {
@@ -29,19 +34,17 @@ export class Video {
 }
 //#endregion
 export class VideoService implements IVideoServie<Video> {
-    public GetVideoList(page: number = 0, size: number = 10): Result<Video> {
-        axios.get<any, Result<Video>>(urls.APIGetDoorList, {
-            params: {
-                page: page,
-                size: size
-            }
-        }).then(function (response) {
-            console.log(response);
-            return response;
-        }).catch(function (error) {
-            console.log(error);
+    async GetVideoList(page: number = 0, size: number = 10): Promise<Response<Video>> {
+        try {
+            const response = await axios.get(urls.apiGetVideoList, {
+                params: {
+                    page: page,
+                    size: size
+                }
+            })
+            return response.data
+        } catch (error) {
             return null
-        })
-        return null
+        }
     }
 }

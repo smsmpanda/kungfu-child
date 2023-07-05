@@ -1,6 +1,6 @@
 <template>
-    <div class="container-flex-column app-container">
-        <Nav />
+    <div class="container-flex-column">
+        <Nav class="app-nav" />
         <div class="container-fill banner">
             <router-view></router-view>
         </div>
@@ -18,8 +18,9 @@ export default defineComponent({
 </script>
 
 <style lang="less">
-.app-container {
-    width: 100%;
-    height: 100%;
+.app-nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 </style>
