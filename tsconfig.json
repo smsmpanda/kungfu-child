@@ -2,10 +2,11 @@
     "compilerOptions": {
       "noImplicitAny": true,
       "module": "ESNext",
-      "target": "ES2015",
+      "target": "ESNext",
       "allowJs": true,
       "noEmitOnError": true,
-      "moduleResolution": "Node"
+      "moduleResolution": "Node",
+      "sourceMap": true
     },
     "include": [
       "./src/**/*"

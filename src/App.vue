@@ -19,7 +19,7 @@ export default defineComponent({
 
 <style lang="less">
 .app-nav {
-    position: sticky;
+    position: sticky !important;
     top: 0;
     z-index: 999;
 }

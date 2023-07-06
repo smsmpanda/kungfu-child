@@ -18,10 +18,16 @@ const routes: Array<RouteRecordRaw> = [
                     import('../components/gluttony/index.vue')
             },
             {
-                path: "video",
-                name: "Video",
+                path: "posts",
+                name: "Posts",
                 component: () =>
-                    import('../components/video/index.vue')
+                    import('../components/posts/index.vue')
+            },
+            {
+                path: "favimg",
+                name: "Favimg",
+                component: () =>
+                    import('../components/favimage/index.vue')
             }
         ]
     },

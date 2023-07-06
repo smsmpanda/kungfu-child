@@ -8,7 +8,14 @@
                     </el-icon>
                     <span class="nav-menu-title">Navigator One</span>
                 </template>
-                <el-menu-item index="/home/video">item one</el-menu-item>
+                <el-menu-item index="/home/posts">
+                    <template #title>
+                        <el-icon>
+                            <document />
+                        </el-icon>
+                        <span>Posts Center</span>
+                    </template>
+                </el-menu-item>
             </el-sub-menu>
             <el-sub-menu index="2">
                 <template #title>
@@ -32,6 +39,14 @@
                         <document />
                     </el-icon>
                     <span class="nav-menu-title"> Navigator Three</span></template>
+                <el-menu-item index="/home/favimg">
+                    <template #title>
+                        <el-icon>
+                            <camera-filled />
+                        </el-icon>
+                        <span class="nav-menu-title">Favorite Image</span>
+                    </template>
+                </el-menu-item>
             </el-sub-menu>
             <el-sub-menu index="4">
                 <template #title>
@@ -53,7 +68,9 @@ import {
     Menu as IconMenu,
     Location,
     Setting,
-    ArrowLeft
+    ArrowLeft,
+    CameraFilled
+
 } from '@element-plus/icons-vue'
 
 export default defineComponent({
@@ -64,7 +81,7 @@ export default defineComponent({
         IconMenu,
         Location,
         Setting,
-        UserActivation
+        CameraFilled
     },
     setup() {
 

@@ -20,8 +20,6 @@ class GluttonyGame {
         this.food = new Food()
         this.snake = new Snake()
         this.scorePanel = new ScorePanel()
-
-        console.log('GluttonyGame::->ctor' + 'go...')
     }
 
     init() {
